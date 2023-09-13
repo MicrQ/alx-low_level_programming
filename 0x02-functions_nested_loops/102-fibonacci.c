@@ -6,12 +6,12 @@
  */
 int main(void)
 {
-	long long int a = 1, b = 2, c;
+	long int a = 1, b = 2, c;
 	int count = 1;
 
 	while (count <= 50)
 	{
-		printf("%lld", a);
+		printf("%ld", a);
 		c = a + b;
 		a = b;
 		b = c;
