@@ -1,11 +1,26 @@
 #include "main.h"
 
 /**
+ * three_digits - printing three digits
+ * @n: argument
+ *
+ */
+void three_digits(int n)
+{
+	int tmp = n / 100;
+
+	n = n % 100;
+	_putchar('0' + tmp);
+	_putchar('0' + (n / 10));
+	 _putchar('0' + (n % 10));
+}
+/**
  * print_times_table - prints time table
+ * @n: argument
  */
 void print_times_table(int n)
 {
-	int i = 0, j, res, tmp;
+	int i = 0, j, res;
 
 	if (n >= 0 && n <= 15)
 	{
@@ -15,7 +30,7 @@ void print_times_table(int n)
 			while (j <= n)
 			{
 				res =  i * j;
-				if (j > 1 && res < 10)
+				if (j > 0 && res < 10)
 				{
 					_putchar(' ');
 					_putchar(' ');
@@ -29,13 +44,7 @@ void print_times_table(int n)
 					_putchar('0' + res % 10);
 				}
 				else
-				{
-					tmp = res / 100;
-					res = res % 100;
-					_putchar('0' + tmp);
-					_putchar('0' + (res / 10));
-					_putchar('0' + (res % 10));
-				}
+					three_digits(res);
 				if (j != n)
 				{
 					_putchar(',');
@@ -48,3 +57,4 @@ void print_times_table(int n)
 		}
 	}
 }
+
