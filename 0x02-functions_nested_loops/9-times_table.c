@@ -2,8 +2,6 @@
 
 /**
  * times_table - prints time table
- * 
- *
  */
 void times_table(void)
 {
@@ -14,7 +12,7 @@ void times_table(void)
 		j = 0;
 		while (j < 10)
 		{
-			res = i*j;
+			res = i * j;
 			if (j > 0 && res < 10)
 				_putchar(' ');
 			if (res > 9)
