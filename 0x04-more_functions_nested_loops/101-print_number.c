@@ -1,37 +1,25 @@
 #include "main.h"
 
 /**
- * print_number - prints given numbers
- * @n: will be printed
+ * print_number - prints given number
+ * @n: will be printed only using putchar
  */
 
-void  print_number(int n)
+void print_number(int n)
 {
-	int tmp, fact, digit, sign;
-/*
-*	if (n == 0)
-*		_putchar('0');
-*/
+	int tmp;
+
 	if (n < 0)
 	{
-		sign = -1;
+		n = -n;
 		_putchar('-');
 	}
+	if (n < 10)
+		_putchar('0' + n);
 	else
-		sign = 1;
-	tmp = n * sign;
-	fact = 1;
-	while (tmp > 9)
 	{
-		tmp /= 10;
-		fact *= 10;
-	}
-	tmp = n * sign;
-	while (fact > 0)
-	{
-		digit = tmp / fact;
-		_putchar(digit + '0');
-		tmp %= fact;
-		fact /= 10;
+		tmp = n % 10;
+		print_number(n / 10);
+		_putchar('0' + tmp);
 	}
 }
