@@ -5,7 +5,8 @@
  * @str: passed string
  */
 
-void puts_half(char *str) {
+void puts_half(char *str)
+{
 	int half, i = 0;
 
 	while (*(str + i) != '\0')
@@ -13,7 +14,8 @@ void puts_half(char *str) {
 
 	i -= 1;
 	half = (i / 2) + 1;
-	while (half <= i) {
+	while (half <= i)
+	{
 		_putchar(*(str + half));
 		half++;
 	}
