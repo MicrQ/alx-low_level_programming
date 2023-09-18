@@ -8,19 +8,23 @@
  */
 int main(void)
 {
-	const int PASS_LENG = 8;
-	char pass[8];
-	char comb[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz`~!@#$%^&*()-_=+[]{}';:/?.>,<";
-	int combSize = sizeof(comb) - 1;
-	int i, n;
+	int i = 0, j, sum = 0;
+	int pass[64];
 
 	srand(time(NULL));
-	for (i = 0; i < PASS_LENG; i++)
+	while (i < 64)
 	{
-		n = rand() % combSize;
-		pass[i] = comb[n];
+		pass[i] = rand() % 78;
+		sum += '0' + pass[i];
+		putchar('0' + pass[i]);
+		if ((2772 - sum) - '0' < 78)
+		{
+			j = 2772 - sum - '0';
+			sum = sum + j;
+			putchar('0' + j);
+			break;
+		}
+		i++;
 	}
-	pass[PASS_LENG] = '\0';
-	printf("%s\n", pass);
 	return (0);
 }
