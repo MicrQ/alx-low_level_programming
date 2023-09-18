@@ -3,7 +3,7 @@
 /**
  * _puts - prints string
  * @str: passed string
- * 
+ *
  */
 
 void _puts(char *str)
@@ -15,4 +15,5 @@ void _puts(char *str)
 		_putchar(*(str + i));
 		i++;
 	}
+	_putchar('\n');
 }
