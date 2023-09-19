@@ -1,0 +1,1 @@
+this projects are about pointers, arrays and strings. continued of project 0x05-pointers_arrays_strings.
