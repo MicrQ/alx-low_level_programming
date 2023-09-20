@@ -8,9 +8,29 @@
 
 char *cap_string(char *c)
 {
-	int arr[] = " ,;.!	?\"(){}"
-	int i, j, size;
+	int j, i = 0, flag = 1;
+	char t;
+	char arr[] = " \t\n,;.!?\"(){}";
 
-	size = sizeof(c) / sizeof(int);
-	
+	while (c[i] != '\0')
+	{
+		t = c[i];
+		j = 0;
+		while (arr[j] != '\0')
+		{
+			if (t == arr[j])
+				flag = 1;
+			else
+			{
+				if (flag && t >= 'a' && t <= 'z')
+				{
+					c[i] = t - 32;
+					flag = 0;
+				}
+			}
+			j++;
+		}
+		i++;
+	}
+	return (c);
 }
