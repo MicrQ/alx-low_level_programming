@@ -24,7 +24,7 @@ void print_buffer(char *b, int size)
 		{
 			if (j < size)
 			{
-				printf("%02x ", b[j]);
+				printf("%02x", b[j]);
 				if (!(cnt % 2 == 0))
 					printf(" ");
 				cnt++;
