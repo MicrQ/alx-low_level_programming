@@ -20,13 +20,10 @@ char *cap_string(char *c)
 		{
 			if (t == arr[j])
 				flag = 1;
-			else
+			if (flag && t >= 'a' && t <= 'z')
 			{
-				if (flag && t >= 'a' && t <= 'z')
-				{
-					c[i] = t - 32;
-					flag = 0;
-				}
+				c[i] = t - 32;
+				flag = 0;
 			}
 			j++;
 		}
