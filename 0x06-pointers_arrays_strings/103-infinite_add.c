@@ -28,7 +28,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	while (i > 0 || j > 0)
 	{
 		if (len3 + 1 >= size_r)
-			return(0);
+			return (0);
 		sum = carry + (i > 0 ? n1[i - 1] - '0' : 0) + (j > 0 ? n2[j - 1] - '0' : 0);
 		carry = sum / 10;
 		r[len3] = sum % 10 + '0';
@@ -39,7 +39,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	if (carry > 0)
 	{
 		if (len3 + 1 >= size_r)
-			return(0);
+			return (0);
 		r[len3] = carry + '0';
 		len3++;
 	}
@@ -52,17 +52,3 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	r[len3] = '\0';
 	return (r);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
