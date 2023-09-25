@@ -1,5 +1,5 @@
 /**
-* set_string - sets new value 
+* set_string - sets new value
 * @s: a pointer to a pointer to be set
 * @to: a pointer to a char
 */
