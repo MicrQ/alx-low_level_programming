@@ -10,7 +10,7 @@ void _print_rev_recursion(char *s, char *sp)
 		return;
         _print_rev_recursion(s + 1, sp);
         *sp = *s;
-	*sp++;
+	sp++;
 }
 
 /**
