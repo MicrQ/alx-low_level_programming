@@ -1,30 +1,41 @@
 /**
- * _print_rev_recursion - prints a given string in reverse
- * @s: given string
- * @sp: revesed string
+ * pal - check palindrome
+ * @s: string to be check
+ * @i: iterat
+ * @l: length of s
+ * Return: 1 if palindrome, else 0
  */
 
-void _print_rev_recursion(char *s, char *sp)
+int pal(char *s, int i, int l)
 {
-	if (*s == '\0')
-		return;
-        _print_rev_recursion(s + 1, sp);
-        *sp = *s;
-	sp++;
+        if (*(s + i) != *(s + l - 1))
+                return (0);
+        if (i >= l)
+                return (1);
+        return (pal(s, i + 1,l - 1));
 }
 
 /**
- * is_palindrome - checks is the string is palindrome or not
- * @s: given string
- * Return: 1 if the string is palindrome. else returns 0
+ * stl_rec - length of a s
+ * @ss: string
+ * Return: length
  */
 
+int stl_rec(char *ss)
+{
+        if (*ss == '\0')
+                return (0);
+        return (1 + stl_rec(ss + 1));
+}
+
+/**
+ * is_palindrome - palindrome checker, checks if s is palindrome
+ * @s: given string
+ * Return: 1 if palindrome, else 0
+ */
 int is_palindrome(char *s)
 {
 	if (*s == '\0')
 		return (1);
-	if (s == _print_rev_recursion(s, ' '))
-		return (1);
-	else
-		return (0);
+	return (pal(s, 0, stl_rec(s)));
 }
