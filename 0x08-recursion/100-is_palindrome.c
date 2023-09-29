@@ -12,7 +12,7 @@ int pal(char *s, int i, int l)
 		return (0);
 	if (i >= l)
 		return (1);
-	return (pal(s, i + 1,l - 1));
+	return (pal(s, i + 1, l - 1));
 }
 
 /**
