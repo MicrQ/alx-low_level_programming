@@ -10,7 +10,7 @@ int iterator(int i, int x)
 		return (1);
 	if (x % i == 0)
 		return (0);
-	return (iterator(i - 1, x);
+	return (iterator(i - 1, x));
 }
 
 /**
