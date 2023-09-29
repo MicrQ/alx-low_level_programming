@@ -7,11 +7,11 @@
  */
 int fact(int i, int r)
 {
-	if (i < 2)
+	if (i * i > r)
 		return (-1);
 	if (i * i == r)
 		return (i);
-	return (fact(i - 1, r));
+	return (fact(i + 1, r));
 }
 
 
@@ -24,9 +24,5 @@ int fact(int i, int r)
 
 int _sqrt_recursion(int n)
 {
-	if (n < 0)
-		return (-1);
-	if (n == 0 || n == 1)
-		return (n);
-	return (fact(n / 2, n));
+	return (fact(0, n));
 }
