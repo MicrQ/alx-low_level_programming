@@ -8,11 +8,11 @@
 
 int pal(char *s, int i, int l)
 {
-        if (*(s + i) != *(s + l - 1))
-                return (0);
-        if (i >= l)
-                return (1);
-        return (pal(s, i + 1,l - 1));
+	if (*(s + i) != *(s + l - 1))
+		return (0);
+	if (i >= l)
+		return (1);
+	return (pal(s, i + 1,l - 1));
 }
 
 /**
@@ -23,9 +23,9 @@ int pal(char *s, int i, int l)
 
 int stl_rec(char *ss)
 {
-        if (*ss == '\0')
-                return (0);
-        return (1 + stl_rec(ss + 1));
+	if (*ss == '\0')
+		return (0);
+	return (1 + stl_rec(ss + 1));
 }
 
 /**
