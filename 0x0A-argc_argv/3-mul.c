@@ -8,7 +8,7 @@
  * Return: 0 for success, 1 if argument is not passed
  */
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
 	int n1, n2;
 
