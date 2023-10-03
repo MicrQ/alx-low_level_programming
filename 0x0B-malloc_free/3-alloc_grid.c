@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "main.h"
+
 /**
  * alloc_grid - 2D array creator
  * @width: of the 2D array
@@ -37,7 +37,6 @@ int **alloc_grid(int width, int height)
 	{
 		for (j = 0; j < width; j++)
 			arr[i][j] = 0;
-		_putchar('\n');
 	}
 	return (arr);
 }
