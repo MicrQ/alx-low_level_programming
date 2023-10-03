@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
 /**
- * _strdup - contains the copy of the given string 
+ * _strdup - contains the copy of the given string
  * @str: given string
  * Return: NULL if str is NULL and
  *         if insufficient space is available
