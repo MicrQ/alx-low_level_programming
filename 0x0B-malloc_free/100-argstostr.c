@@ -18,7 +18,7 @@ int _strlen(char *s)
 
 /**
  * argstostr - concatenates all arguments to one string
- * 		print each arg in new line.
+ *             print each arg in new line.
  * @ac: arg counter
  * @av: given arguments
  * Return: a pointer to a new string created
@@ -34,8 +34,9 @@ char *argstostr(int ac, char **av)
 
 	for (i = 0; i < ac; i++)
 		j += _strlen(av[i]);
-	str = malloc(sizeof(char) * (j + 1));
-
+	str = malloc(sizeof(char) * (j + ac + 1));
+	if (str == NULL)
+		return (NULL);
 
 	for (i = 0; i < ac; i++)
 	{
