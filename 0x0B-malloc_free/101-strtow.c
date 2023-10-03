@@ -8,16 +8,13 @@
 
 int _strlen(char *s)
 {
-	unsigned int i = 0, j = 0;
+	unsigned int i = 0;
 
 	while (*(s + i) != '\0')
 	{
 		i++;
-		if (*(s + i) == ' ')
-			continue;
-		j++;
 	}
-	return (j);
+	return (i);
 }
 
 /**
