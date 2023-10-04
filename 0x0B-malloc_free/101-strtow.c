@@ -55,7 +55,7 @@ char **strtow(char *str)
 	if (cnt == 0)
 		return (NULL);
 
-	s = malloc(sizeof(char *) * (cnt + 1));
+	s = (char **)malloc(sizeof(char *) * (cnt + 1));
 	if (s == NULL)
 		return (NULL);
 
@@ -66,7 +66,7 @@ char **strtow(char *str)
 			if (flag)
 			{
 				lst = i;
-				sin = malloc(sizeof(char) * (flag + 1));
+				sin = (char *)malloc(sizeof(char) * (flag + 1));
 				if (sin == NULL)
 					return (NULL);
 				while (fst < lst)
