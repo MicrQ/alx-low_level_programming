@@ -1,0 +1,1 @@
+this C programs and functions are focused on malloc(), free(), calloc(), exit() and realloc()
