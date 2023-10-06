@@ -27,7 +27,7 @@ unsigned int _strlen(char *s)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *new;
-	unsigned int len, i, j;
+	unsigned int len, i, j = 0;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -42,12 +42,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (new == NULL)
 		return (NULL);
 
-	for (i = 0; i < _strlen(s1); i++)
-		new[i] = s1[i];
-	for (j = 0; j < n; j++)
+	for (i = 0; i < len; i++)
 	{
-		new[i] = s2[j];
-		i++;
+		if (i < _strlen(s1))
+			new[i] = s1[i];
+		if (i >= _strlen(s1))
+		{
+			new[i] = s2[j];
+			j++;
+		}
 	}
 	new[i] = '\0';
 
