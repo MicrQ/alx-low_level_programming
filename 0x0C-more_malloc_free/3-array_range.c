@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
 /**
- * array_range - creates an array of integer elements starting from 
+ * array_range - creates an array of integer elements starting from
  *		 min(included) upto max(included)
  * @min: the lowest number in the elemets
  * @max: the largest number in the elements
