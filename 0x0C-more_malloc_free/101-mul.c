@@ -24,6 +24,7 @@ void error(void)
 int _isdigit(char *c)
 {
 	int k = 0;
+
 	while (c[k] != '\0')
 	{
 		if (c[k] < '0' || c[k] > '9')
