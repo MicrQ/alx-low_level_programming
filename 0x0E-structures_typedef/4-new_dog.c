@@ -51,34 +51,30 @@ char *_strcpy(char *dest, char *src)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *dg;
-	char *tn, *to;
 	unsigned int nl, ol;
-	
 
 	dg = malloc(sizeof(dog_t));
 	if (dg == NULL)
 		return (NULL);
-	for (nl = 0; name[nl] != '\0'; nl++)
-	for (ol = 0; owner[ol] != '\0'; ol++)
+	nl = _strlen(name);
+	ol = _strlen(owner);
 
-	tn = malloc(sizeof(char) * (nl + 1));
-	if (tn == NULL)
+	dg->name = malloc(sizeof(char) * (nl + 1));
+	if (dg->name == NULL)
 	{
 		free(dg);
 		return (NULL);
 	}
-	to = malloc(sizeof(char) * (ol + 1));
-	if (to == NULL)
+	dg->owner = malloc(sizeof(char) * (ol + 1));
+	if (dg->owner == NULL)
 	{
+		free(dg->name);
 		free(dg);
-		free(tn);
 		return (NULL);
 	}
-	tn = name;
-	to = owner;
 
-	dg->name = tn;
-	dg->owner = to;
+	_strcpy(dg->name, name);
+	_strcpy(dg->owner, owner);
 	dg->age = age;
 	return (dg);
 }
