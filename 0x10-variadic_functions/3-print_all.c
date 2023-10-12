@@ -23,10 +23,10 @@ void print_all(const char * const format, ...)
 				printf("%d", va_arg(ags, int));
 				break;
 			case 'c':
-				printf("%c", (char)va_arg(ags, int));
+				printf("%c", va_arg(ags, int));
 				break;
 			case 'f':
-				printf("%f", (float)va_arg(ags, double));
+				printf("%f", va_arg(ags, double));
 				break;
 			case 's':
 				str = va_arg(ags, char *);
