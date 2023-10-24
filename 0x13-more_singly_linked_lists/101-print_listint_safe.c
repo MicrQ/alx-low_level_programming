@@ -14,7 +14,7 @@ size_t loop_list(const listint_t *head)
 		return (0);
 
 	tor = head->next;
-	hare = (head->next)->next;
+	har = (head->next)->next;
 	while (har)
 	{
 		if (tor == har)
