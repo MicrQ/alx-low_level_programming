@@ -7,7 +7,7 @@
  * Return: the bit value or -1 for failure
  */
 
-int get_bit(unsigned long int n, unsigned long int index)
+int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned long int lsh, result;
 
