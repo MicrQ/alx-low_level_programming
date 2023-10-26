@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_binary_rev - converts given unsigned int to binary and prints the binary
+ * print_binary_rec - converts given unsigned int to binary
  * @n: number to be converted
  */
 
