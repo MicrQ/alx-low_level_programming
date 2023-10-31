@@ -29,7 +29,7 @@ int append_text_to_file(const char *filename, const char *text_content)
 				return (1);
 			}
 		}
-		close(fd);
 	}
+	close(fd);
 	return (-1);
 }
