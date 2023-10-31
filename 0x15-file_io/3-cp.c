@@ -10,7 +10,7 @@ void checker(int fd, char _case, char *filename, int exit_c);
 
 int main(int argc, char **argv)
 {
-	int fd, fdto, rd, wt, cl_to, cl_from;
+	int fd, fdto, rd = 1024, wt, cl_to, cl_from;
 	char buf[1024];
 
 	if (argc != 3)
@@ -22,12 +22,14 @@ int main(int argc, char **argv)
 	checker(fd, 'o', argv[1], 98);
 	fdto = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	checker(fdto, 'o', argv[2], 99);
-	rd = read(fd, buf, 1024);
-	checker(rd, 'r', argv[1], 98);
+	while (rd == 1024)
+	{
+		rd = read(fd, buf, 1024);
+		checker(rd, 'r', argv[1], 98);
 
-	wt = write(fdto, buf, rd);
-	checker(wt, 'w', argv[2], 99);
-
+		wt = write(fdto, buf, rd);
+		checker(wt, 'w', argv[2], 99);
+	}
 	cl_to = close(fdto);
 	checker(cl_to, 'c', NULL, 100);
 	cl_from = close(fd);
