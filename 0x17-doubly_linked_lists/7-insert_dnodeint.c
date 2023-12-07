@@ -1,4 +1,14 @@
 #include "lists.h"
+/**
+ * free_node - a function that frees a single node
+ * @node: a given node
+ * Return: NULL
+ */
+dlistint_t *free_node(dlistint_t *node)
+{
+	free(node);
+	return (NULL);
+}
 
 /**
  * _len - a function that counts number of nodes
@@ -33,8 +43,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	dlistint_t *head = *h, *new = malloc(sizeof(dlistint_t));
 	unsigned int len = _len(*h), i = 0;
 
-	if (!new || idx > len)
+	if (!new)
 		return (NULL);
+	if (idx >= len)
+		return (free_node(new));
 	new->n = n;
 	new->next = NULL;
 	new->prev = NULL;
@@ -67,6 +79,5 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			head = head->next;
 			i++;
 		}
-	free(new);
-	return (NULL);
+	return (free_node(new));
 }
