@@ -2,36 +2,27 @@
 
 
 /**
- * _len - node counter
- * @head: ptr
- * Return: number of node
- */
-size_t _len(dlistint_t *head)
-{
-	size_t i = 0;
-
-	while (head)
-	{
-		i++;
-		head = head->next;
-	}
-	return (i);
-}
-
-/**
- * delete_dnodeint_at_index - a function that deletes a node at a given index
+ * delete_dnodeint_at_index - deletes the node at index of a list
+ * @head: pointer to the first node of the list
+ * @index: index of the node to delete
  *
- * @head: a pointer to a pointer to the dlinked list
- * @index: a node index(posission)
- * Return: 1 on success, 0 on failure
+ * Return: 1 on success, -1 on failure
  */
+
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *h = *head, *tmp;
-	size_t i = 0;
+	dlistint_t *h = *head, *tmp = NULL;
+	unsigned int i = 0, len = 0;
 
-	if (!*head || index >= _len(*head))
+	while (h)
+	{
+		h = h->next;
+		len++;
+	}
+	if (!*head || index >= len)
 		return (-1);
+
+	h = *head;
 	if (index == 0)
 	{
 		*head = (*head)->next;
@@ -40,19 +31,16 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		free(h);
 		return (1);
 	}
-	while (h)
-	{
-		tmp = h;
-		h = h->next;
-		if (i == index)
-		{
-			tmp->prev->next = h;
-			h->prev = tmp->prev;
-			free(tmp);
-			return (1);
-		}
-		i++;
-	}
 
-	return (-1);
+	for (i = 0; i < index; i++)
+		h = h->next;
+
+	tmp = h->prev;
+	tmp->next = h->next;
+
+	if (h->next != NULL)
+		h->next->prev = tmp;
+
+	free(h);
+	return (1);
 }
