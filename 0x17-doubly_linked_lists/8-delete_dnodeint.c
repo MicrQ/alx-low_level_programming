@@ -2,6 +2,23 @@
 
 
 /**
+ * _len - node counter
+ * @head: ptr
+ * Return: number of node
+ */
+size_t _len(dlistint_t *head)
+{
+	size_t i = 0;
+
+	while (head)
+	{
+		i++;
+		head = head->next;
+	}
+	return (i);
+}
+
+/**
  * delete_dnodeint_at_index - a function that deletes a node at a given index
  *
  * @head: a pointer to a pointer to the dlinked list
@@ -13,7 +30,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	dlistint_t *h = *head, *tmp;
 	size_t i = 0;
 
-	if (!*head)
+	if (!*head || index > _len(*head))
 		return (-1);
 	if (index == 0)
 	{
@@ -23,7 +40,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		free(h);
 		return (1);
 	}
-	while (h) 
+	while (h)
 	{
 		tmp = h;
 		h = h->next;
