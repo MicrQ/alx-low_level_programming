@@ -1,6 +1,24 @@
 #include "lists.h"
 
 /**
+ * _len - a function that counts number of nodes
+ *
+ * @h: a head pointer to the linked list
+ * Return: number of nodes
+ */
+size_t _len(const dlistint_t *h)
+{
+	size_t nodes = 0;
+
+	while (h)
+	{
+		nodes++;
+		h = h->next;
+	}
+	return (nodes);
+}
+
+/**
  * insert_dnodeint_at_index - a function that adds a new node at a given index
  *
  * @h: a pointer to the list
@@ -13,35 +31,44 @@
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *head = *h, *new = malloc(sizeof(dlistint_t));
-	unsigned int i = 0;
+	unsigned int len = _len(*h), i = 0;
 
-	if (!new)
+	if (!new || idx > len)
 		return (NULL);
 	new->n = n;
 	new->next = NULL;
 	new->prev = NULL;
-	if (!head)
+	if (!*h)
 	{
 		if (idx == 0)
 		{
-			head = new;
-			return (head);
-		}
-		else
-			return (NULL);
-	}
-	while (i <= idx)
-	{
-		if (i == idx)
-		{
-			new->next = head;
-			new->prev = head->prev;
-			head->prev->next = new;
-			head->prev = new;
+			*h = new;
 			return (new);
 		}
-		head = head->next;
-		i++;
 	}
+	else if (idx == 0)
+	{
+		new->next = *h;
+		(*h)->prev = new;
+		*h = new;
+		return (new);
+	}
+	else
+	{
+		while (head)
+		{
+			if (i == idx)
+			{
+				new->next = head;
+				new->prev = head->prev;
+				head->prev->next = new;
+				head->prev = new;
+				return (new);
+			}
+			head = head->next;
+			i++;
+		}
+	}
+	free(new);
 	return (NULL);
 }
