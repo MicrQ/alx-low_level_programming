@@ -1,0 +1,1 @@
+This folder contains a my c projects on dynamic library.
