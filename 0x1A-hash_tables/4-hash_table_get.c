@@ -4,7 +4,7 @@
  * hash_table_get - a function that retrives a value.
  * @ht: hash table
  * @key: key to find
- *
+ * Return: NULL or the value
  */
 
 char *hash_table_get(const hash_table_t *ht, const char *key)
@@ -15,7 +15,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	if (!key || !ht || !strcmp(key, ""))
 		return (NULL);
 
-	index = key_index((unsigned char *)key, ht->size);
+	idx = key_index((unsigned char *)key, ht->size);
 	h = (ht->array)[idx];
 
 	while (h)
