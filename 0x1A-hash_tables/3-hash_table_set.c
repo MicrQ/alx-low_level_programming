@@ -1,7 +1,7 @@
 #include "hash_tables.h"
 
 /**
- * varify - verifies if a key already exists
+ * verify - verifies if a key already exists
  * @arr: ptr
  * @key: key to check
  * Return: 0 if not found, 1 if found
