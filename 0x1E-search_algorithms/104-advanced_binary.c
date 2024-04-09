@@ -16,20 +16,9 @@ int help_binarySearch(int *array, int value, size_t low, size_t high);
 
 int advanced_binary(int *array, size_t size, int value)
 {
-	size_t result;
-
 	if (!array)
 		return (-1);
-	result = (help_binarySearch(array, value, 0, size - 1));
-
-	while (result > 0)
-	{
-		if (array[result - 1] != value)
-			return (result);
-		result = help_binarySearch(array, value, 0, result);
-	}
-
-	return (result);
+	return (help_binarySearch(array, value, 0, size - 1));
 }
 
 /**
@@ -74,5 +63,9 @@ int help_binarySearch(int *array, int value, size_t low, size_t high)
 	else if (array[mid] < value)
 		return (help_binarySearch(array, value, mid + 1, high));
 	else
+	{
+		if (mid > 0 && array[mid - 1] == array[mid])
+			return (help_binarySearch(array, value, low, mid));
 		return (mid);
+	}
 }
