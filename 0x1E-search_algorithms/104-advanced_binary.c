@@ -56,14 +56,14 @@ int help_binarySearch(int *array, int value, size_t low, size_t high)
 	if (high < low)
 		return (-1);
 
-	mid = (high + low) / 2;
+	mid = low + (high - low) / 2;
 	print_arr(array, low, high);
 	if (array[mid] > value)
 		return (help_binarySearch(array, value, low, mid - 1));
 	else if (array[mid] < value)
 		return (help_binarySearch(array, value, mid + 1, high));
 
-	if (mid > 0 && array[mid - 1] == array[mid])
+	if (mid > 0 && array[mid] == value && array[mid - 1] == value)
 		return (help_binarySearch(array, value, low, mid));
 	return (mid);
 }
